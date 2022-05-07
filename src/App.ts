@@ -1,4 +1,5 @@
 import express from "express";
+import routes from "./routes/index.routes";
 
 class App {
   public server;
@@ -6,6 +7,11 @@ class App {
   constructor() {
     this.server = express();
     this.middlewares();
+    this.routes();
+  }
+
+  private routes() {
+    this.server.use(routes);
   }
 
   private middlewares() {
